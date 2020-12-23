@@ -14,6 +14,40 @@ const stylesForTitles = {
   color: '#6B5EAC',
 };
 
+// export default function App() {
+//   const [contacts, setContacts] = useState([]);
+//   const [filter, seFilter] = useState('');
+
+//   const handelDeleteContact = contactId => {
+//     // ????????
+//     setContacts(contacts.filter(contact => contact.id !== contactId));
+//   };
+
+//   const contactFormSubmithandler = newContact => {
+//     setContacts(...contacts, newContact);
+//   };
+
+//   return (
+//     <div style={{ ...stylesForWrapper }}>
+//       <h1 style={{ ...stylesForTitles }}>Phonebook</h1>
+
+//       <ContactForm
+//         onSubmitData={contactFormSubmithandler}
+//         onCheckUnique={this.handelCheckUniqueContact}
+//       />
+
+//       <h2 style={{ ...stylesForTitles }}>Contacts</h2>
+
+//       <Filter value={filter} onChange={this.changeFilter} />
+
+//       <ContactList
+//         contacts={filteredContacts}
+//         onDeleteContact={handelDeleteContact}
+//       />
+//     </div>
+//   );
+// }
+
 class App extends Component {
   state = {
     contacts: [],
