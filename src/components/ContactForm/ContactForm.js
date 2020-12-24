@@ -21,7 +21,6 @@ export default function ContactForm({ onSubmitData, onCheckUnique }) {
   };
 
   const handelSubmit = event => {
-    const { name, number } = this.state;
     event.preventDefault();
 
     const isValidateForm = validateForm();
@@ -49,7 +48,7 @@ export default function ContactForm({ onSubmitData, onCheckUnique }) {
   };
 
   return (
-    <form className={s.form} onSubmit={handelSubmit}>
+    <form className={s.form} onSubmit={handelSubmit} autoComplete="off">
       <label className={s.label}>
         Name{' '}
         <input

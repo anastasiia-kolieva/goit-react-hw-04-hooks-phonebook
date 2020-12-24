@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ContactForm from './components/ContactForm/ContactForm';
 import Filter from './components/Filter/Filter';
 import ContactList from './components/ContactList/ContactList';
+import useLocalStorage from './hooks/useLocalStorage';
 
 const stylesForWrapper = {
   width: '500px',
@@ -15,7 +16,7 @@ const stylesForTitles = {
 };
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useLocalStorage('contacts', '');
   const [filter, setFilter] = useState('');
 
   const handelDeleteContact = contactId => {
@@ -42,30 +43,6 @@ export default function App() {
       contact.name.toLowerCase().includes(normalizedFilter),
     );
   };
-
-  //   componentDidMount() {
-  //     // взять контакты с предыдущей сессии, хранящиеся в localStorage
-  //     const prevContacts = localStorage.getItem('contacts');
-  //     // запарсить массив
-  //     const parsedContacts = JSON.parse(prevContacts);
-
-  //     // если в localStorage уже есть контакты, тогда их записываем в state.
-  //     // если контакты=пустой массив(null), тогда ничего не записывается
-  //     if (parsedContacts) {
-  //       // записать в state предыдущие контакты
-  //       this.setState({ contacts: parsedContacts });
-  //     }
-  //   }
-
-  //   componentDidUpdate(prevProps, prevState) {
-  //     // если текущий контакт в state НЕ равен предыдущему контакту в state
-  //     // проверяем обновился ли массив контактов
-  //     if (this.state.contacts !== prevState.contacts) {
-  //       // записываем в localStorage массив contacts обьектов ({id,name,number})
-  //       // при каждом обновлении контакта, перезаписываем массив контактов
-  //       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-  //     }
-  //   }
 
   return (
     <div style={{ ...stylesForWrapper }}>
