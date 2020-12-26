@@ -16,7 +16,7 @@ const stylesForTitles = {
 };
 
 export default function App() {
-  const [contacts, setContacts] = useLocalStorage('contacts', '');
+  const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
 
   const handelDeleteContact = contactId => {
